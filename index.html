@@ -1,49 +1,74 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Starter Widget</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Starter Widget</title>
 
-  <style>
-    body {
-      font-family: sans-serif;
-      font-size: 5vw;        /* Scales with screen width */
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      background: #f7f7f7;
+<style>
+    /* Base container */
+    .widget-container {
+        font-size: 1.4rem;        /* Larger baseline font */
+        font-family: Arial, sans-serif;
+        padding: 1rem;
+        max-width: 400px;
+        margin: auto;
+        border: 1px solid #ccc;
+        border-radius: 8px;
     }
 
-    h2 {
-      font-size: 6vw;        /* Larger heading */
-      margin-bottom: 4vh;
+    /* Title */
+    .widget-title {
+        font-size: 1.6rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
     }
 
-    button {
-      font-size: 5vw;        /* Large button text */
-      padding: 3vh 6vw;      /* Large tap area */
-      border-radius: 8px;
-      margin-top: 2vh;
+    /* Textarea */
+    .widget-textarea {
+        width: 100%;
+        height: 120px;
+        font-size: 1.3rem;
+        padding: 0.5rem;
+        border-radius: 6px;
+        border: 1px solid #aaa;
+        box-sizing: border-box;
     }
 
-    #out {
-      margin-top: 3vh;
-      font-size: 5vw;
+    /* Mode display */
+    .widget-mode-display {
+        margin-top: 1rem;
+        font-size: 1.3rem;
+        font-weight: 500;
     }
-  </style>
+
+    /* Buttons */
+    .widget-button {
+        font-size: 1.3rem;
+        padding: 0.6rem 1rem;
+        margin-top: 1rem;
+        border-radius: 6px;
+        border: none;
+        background-color: #0078d4;
+        color: white;
+        cursor: pointer;
+    }
+
+    .widget-button:hover {
+        background-color: #005fa3;
+    }
+</style>
 </head>
 
 <body>
-  <h2>Starter Widget</h2>
+<div class="widget-container">
+    <div class="widget-title">Starter Widget</div>
 
-  <button onclick="document.getElementById('out').textContent = 'Widget activated'">
-    Activate
-  </button>
+    <textarea class="widget-textarea" placeholder="Type here..."></textarea>
 
-  <p id="out"></p>
+    <div class="widget-mode-display">Mode: Starter</div>
+
+    <button class="widget-button">Run Starter</button>
+</div>
 </body>
 </html>
