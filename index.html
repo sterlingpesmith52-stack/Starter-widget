@@ -1,74 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Starter Widget</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Starter Widget</title>
 
-<style>
-    /* Base container */
-    .widget-container {
-        font-size: 1.4rem;        /* Larger baseline font */
-        font-family: Arial, sans-serif;
-        padding: 1rem;
-        max-width: 400px;
-        margin: auto;
-        border: 1px solid #ccc;
-        border-radius: 8px;
-    }
+    <style>
+        :root {
+            --bg-light: #f7f7f7;
+            --bg-dark: #111;
+            --text-light: #222;
+            --text-dark: #eee;
+            --panel-light: #ffffff;
+            --panel-dark: #1a1a1a;
+            --border-light: #ccc;
+            --border-dark: #444;
+            --button-blue: #0078d4;
+            --button-blue-dark: #005a9e;
+        }
 
-    /* Title */
-    .widget-title {
-        font-size: 1.6rem;
-        font-weight: 600;
-        margin-bottom: 1rem;
-    }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, sans-serif;
+            background: var(--bg-light);
+            color: var(--text-light);
+            transition: background 0.3s, color 0.3s;
+        }
 
-    /* Textarea */
-    .widget-textarea {
-        width: 100%;
-        height: 120px;
-        font-size: 1.3rem;
-        padding: 0.5rem;
-        border-radius: 6px;
-        border: 1px solid #aaa;
-        box-sizing: border-box;
-    }
+        body.dark-mode {
+            background: var(--bg-dark);
+            color: var(--text-dark);
+        }
 
-    /* Mode display */
-    .widget-mode-display {
-        margin-top: 1rem;
-        font-size: 1.3rem;
-        font-weight: 500;
-    }
+        h1 {
+            margin: 24px 0 0 20px;
+            font-size: 28px;
+            font-weight: 600;
+            text-align: left;
+        }
 
-    /* Buttons */
-    .widget-button {
-        font-size: 1.3rem;
-        padding: 0.6rem 1rem;
-        margin-top: 1rem;
-        border-radius: 6px;
-        border: none;
-        background-color: #0078d4;
-        color: white;
-        cursor: pointer;
-    }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background: var(--panel-light);
+            border-radius: 10px;
+            border: 1px solid #ddd;
+        }
 
-    .widget-button:hover {
-        background-color: #005fa3;
-    }
-</style>
+        body.dark-mode .container {
+            background: var(--panel-dark);
+            border: 1px solid #333;
+        }
+
+        textarea {
+            width: 100%;
+            height: 140px;
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 8px;
+            border: 1px solid var(--border-light);
+            resize: none;
+            box-sizing: border-box;
+        }
+
+        body.dark-mode textarea {
+            background: #222;
+            color: var(--text-dark);
+            border: 1px solid var(--border-dark);
+        }
+
+        button {
+            margin-top: 12px;
+            padding: 10px 16px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background: var(--button-blue);
+            color: white;
+            display: inline-block; /* auto-width */
+        }
+
+        body.dark-mode button {
+            background: var(--button-blue-dark);
+        }
+
+        #output {
+            margin-top: 20px;
+            padding: 16px;
+            border-radius: 8px;
+            background: var(--panel-light);
+            min-height: 80px;
+            border: 1px solid #ddd;
+            white-space: pre-wrap;
+        }
+
+        body.dark-mode #output {
+            background: var(--panel-dark);
+            border: 1px solid #333;
+        }
+
+        .toggle {
+            margin-top: 20px;
+            text-align: left;
+            cursor: pointer;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+    </style>
 </head>
 
 <body>
-<div class="widget-container">
-    <div class="widget-title">Starter Widget</div>
+    <h1>Starter Widget</h1>
 
-    <textarea class="widget-textarea" placeholder="Type here..."></textarea>
+    <div class="container">
+        <textarea id="input" placeholder="Type here..."></textarea>
 
-    <div class="widget-mode-display">Mode: Starter</div>
+        <div style="margin-top: 10px; font-size: 14px; opacity: 0.8;">
+            Mode: Starter
+        </div>
 
-    <button class="widget-button">Run Starter</button>
-</div>
+        <button id="run">Run Starter</button>
+
+        <div id="output"></div>
+
+        <div class="toggle" id="toggle">Toggle Dark Mode</div>
+    </div>
+
+    <script>
+        const toggle = document.getElementById("toggle");
+        toggle.addEventListener("click", () => {
+            document.body.classList.toggle("dark-mode");
+        });
+
+        document.getElementById("run").addEventListener("click", () => {
+            const input = document.getElementById("input").value;
+
+            // Starter Widget behavior: echo input (placeholder logic)
+            const output = "Starter output: " + input;
+
+            document.getElementById("output").textContent = output;
+        });
+    </script>
 </body>
 </html>
+
