@@ -3,131 +3,100 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Starter Widget</title>
+    <title>Clarifier</title>
 
     <style>
         body {
+            font-family: system-ui, sans-serif;
             margin: 0;
-            padding: 20px;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background: #ffffff;
-            color: #000000;
+            padding: 16px;
+            background: white;
         }
 
-        /* MICROFOUNDARY LOGO — POLISHED SIZE + CHROME-SAFE */
-        .logo {
-            height: 32px;
-            max-width: 120px;
-            width: auto;
-            object-fit: contain;
-            display: block;
-            margin-bottom: 6px;
-        }
-
-        /* TITLE */
-        .title {
-            font-size: 28px;
-            font-weight: 600;
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
             margin-bottom: 20px;
+        }
+
+        .logo-box {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-box img {
+            height: 28px;
+            width: auto;
+        }
+
+        h1 {
+            font-size: 22px;
+            margin: 0;
+            padding: 0;
             text-align: left;
         }
 
-        /* CONTAINER */
-        .container {
+        .controls {
             display: flex;
-            flex-direction: column;
-            gap: 12px;
-            align-items: flex-start;
-            background: #ffffff;
-            padding: 20px;
-            border-radius: 10px;
-            border: 1px solid #ddd;
-            max-width: 600px;
-            margin: 0 auto;
+            gap: 10px;
+            margin-bottom: 16px;
         }
 
-        /* TEXTAREA */
-        textarea {
-            width: 100%;
-            height: 160px;
-            padding: 12px;
-            font-size: 16px;
-            border-radius: 8px;
-            border: 1px solid #ccc;
-            resize: none;
-            box-sizing: border-box;
-        }
-
-        textarea:focus {
-            outline: none;
-            border-color: #000;
-        }
-
-        /* BUTTON — MICROFOUNDARY BLUE, AUTO-WIDTH, LEFT-JUSTIFIED */
         button {
-            padding: 10px 16px;
-            font-size: 16px;
-            border: none;
-            border-radius: 8px;
-            background: #0078FF;
-            color: white;
+            padding: 8px 14px;
+            font-size: 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            background: white;
             cursor: pointer;
-            display: inline-block;
+            text-align: left;
             width: auto;
         }
 
-        button:hover {
-            opacity: 0.85;
-        }
-
-        /* OUTPUT BOX */
-        #output {
-            padding: 16px;
-            border-radius: 8px;
-            background: #fafafa;
-            border: 1px solid #ddd;
-            min-height: 80px;
+        textarea {
             width: 100%;
-            white-space: pre-wrap;
-        }
-
-        /* DARK MODE TOGGLE */
-        .toggle {
-            margin-top: 10px;
-            font-size: 14px;
-            opacity: 0.8;
-            cursor: pointer;
+            height: 180px;
+            padding: 12px;
+            font-size: 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            resize: vertical;
         }
     </style>
 </head>
 
 <body>
 
-    <!-- LOGO -->
-    <img src="IMG_1669.jpeg" class="logo" alt="StarterWidget Logo">
-
-    <!-- TITLE -->
-    <div class="title">Starter Widget</div>
-
-    <div class="container">
-        <textarea id="input" placeholder="Type here…"></textarea>
-
-        <button id="run">Run Starter</button>
-
-        <div id="output"></div>
-
-        <div class="toggle" id="toggle">Toggle Dark Mode</div>
+    <div class="header">
+        <div class="logo-box">
+            <img src="microfoundary-logo.png" alt="MicroFoundary Logo" />
+        </div>
+        <h1>Clarifier</h1>
     </div>
 
-    <script>
-        document.getElementById("toggle").addEventListener("click", () => {
-            document.body.classList.toggle("dark-mode");
-        });
+    <div class="controls">
+        <button onclick="simplify()">Simplify</button>
+        <button onclick="clearText()">Clear</button>
+    </div>
 
-        document.getElementById("run").addEventListener("click", () => {
-            const input = document.getElementById("input").value;
-            document.getElementById("output").textContent = "Starter output: " + input;
-        });
+    <textarea id="input" placeholder="Paste text here..."></textarea>
+
+    <script>
+        function simplify() {
+            const box = document.getElementById("input");
+            box.value = box.value
+                .replace(/\s+/g, " ")
+                .replace(/\.{2,}/g, ".")
+                .trim();
+        }
+
+        function clearText() {
+            document.getElementById("input").value = "";
+        }
     </script>
 
 </body>
