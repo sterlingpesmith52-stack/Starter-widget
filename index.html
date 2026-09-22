@@ -13,19 +13,14 @@
             background: white;
         }
 
-        .header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 20px;
-        }
-
+        /* Logo on its own line */
         .logo-box {
             width: 48px;
             height: 48px;
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
+            margin-bottom: 8px;
         }
 
         .logo-box img {
@@ -33,19 +28,22 @@
             width: auto;
         }
 
-        h1 {
+        /* Title on second line */
+        .title {
             font-size: 22px;
-            margin: 0;
-            padding: 0;
+            font-weight: 600;
+            margin: 0 0 20px 0;
             text-align: left;
         }
 
+        /* Buttons row */
         .controls {
             display: flex;
             gap: 10px;
             margin-bottom: 16px;
         }
 
+        /* MicroFoundary button styling */
         button {
             padding: 8px 14px;
             font-size: 15px;
@@ -54,9 +52,10 @@
             background: white;
             cursor: pointer;
             text-align: left;
-            width: auto;
+            width: auto; /* auto-width, left-aligned */
         }
 
+        /* Text area */
         textarea {
             width: 100%;
             height: 180px;
@@ -71,12 +70,13 @@
 
 <body>
 
-    <div class="header">
-        <div class="logo-box">
-            <img src="microfoundary-logo.png" alt="MicroFoundary Logo" />
-        </div>
-        <h1>Starter Widget</h1>
+    <!-- LOGO FIRST LINE -->
+    <div class="logo-box">
+        <img src="microfoundary-logo.png" alt="MicroFoundary Logo" />
     </div>
+
+    <!-- TITLE SECOND LINE -->
+    <div class="title">Starter Widget</div>
 
     <div class="controls">
         <button onclick="runWidget()">Run</button>
