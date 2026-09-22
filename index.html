@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Clarifier</title>
+    <title>Starter Widget</title>
 
     <style>
         body {
@@ -75,23 +75,21 @@
         <div class="logo-box">
             <img src="microfoundary-logo.png" alt="MicroFoundary Logo" />
         </div>
-        <h1>Clarifier</h1>
+        <h1>Starter Widget</h1>
     </div>
 
     <div class="controls">
-        <button onclick="simplify()">Simplify</button>
+        <button onclick="runWidget()">Run</button>
         <button onclick="clearText()">Clear</button>
     </div>
 
     <textarea id="input" placeholder="Paste text here..."></textarea>
 
     <script>
-        function simplify() {
+        function runWidget() {
             const box = document.getElementById("input");
-            box.value = box.value
-                .replace(/\s+/g, " ")
-                .replace(/\.{2,}/g, ".")
-                .trim();
+            // Placeholder behavior — replace with your widget logic
+            box.value = "Starter Widget executed.";
         }
 
         function clearText() {
