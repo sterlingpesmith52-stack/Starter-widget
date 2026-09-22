@@ -7,7 +7,73 @@
 
    
 </head>
+<style>
+        /* ===== Mobile‑Safe MicroFoundary Styling ===== */
 
+        body {
+            font-family: -apple-system, system-ui, sans-serif;
+            margin: 0;
+            padding: 16px;
+            background: white;
+        }
+
+        /* Logo on its own line */
+        .logo-box {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin-bottom: 10px;
+        }
+
+        .logo-box img {
+            height: 28px;
+            width: auto;
+            display: block; /* iPhone-safe */
+        }
+
+        /* Title */
+        .title {
+            font-size: 22px;
+            font-weight: 600;
+            margin: 0 0 20px 0;
+            text-align: left;
+        }
+
+        /* Buttons row */
+        .controls {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        /* MicroFoundary button styling — iPhone-safe */
+        button {
+            padding: 10px 16px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            background: white;
+            cursor: pointer;
+            text-align: left;
+            width: auto;
+            -webkit-appearance: none; /* prevents iPhone overriding styles */
+        }
+
+        /* Text area */
+        textarea {
+            width: 100%;
+            height: 200px;
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            resize: vertical;
+            -webkit-appearance: none; /* iPhone-safe */
+        }
+    </style>
 <body>
 
     <!-- LOGO FIRST LINE -->
@@ -17,7 +83,7 @@
 
     <!-- TITLE SECOND LINE -->
     <div class="title">Starter Widget</div>
-
+in
     <div class="controls">
         <button onclick="runWidget()">Run</button>
         <button onclick="clearText()">Clear</button>
