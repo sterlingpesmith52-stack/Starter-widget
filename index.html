@@ -5,38 +5,55 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Starter Widget</title>
 
+<!-- ===============================
+     MICROFOUNDARY STANDARD STYLES
+     =============================== -->
 <style>
-    body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        margin: 0;
-        padding: 0;
-        background: #ffffff;
-        color: #222;
+    :root {
+        --mf-bg: #ffffff;
+        --mf-panel: #f7f7f7;
+        --mf-text: #1a1a1a;
+        --mf-muted: #555555;
+        --mf-border: #dcdcdc;
+
+        /* Primary brand color (Run button) */
+        --mf-primary: #007bff;
+        --mf-primary-active: #005fcc;
+
+        /* Secondary button (Clear) */
+        --mf-secondary: #000000;
+        --mf-secondary-active: #222222;
     }
 
-    /* HEADER AREA */
+    body {
+        margin: 0;
+        padding: 0;
+        background: var(--mf-bg);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        color: var(--mf-text);
+    }
+
+    /* HEADER */
     header {
         padding: 20px;
         text-align: left;
     }
 
-    /* BIGGER LOGO — FIXES YOUR ISSUE */
-    .logo {
-        height: 64px;      /* Increased from 48px */
+    .mf-logo {
+        height: 64px;
         width: auto;
         object-fit: contain;
         margin-bottom: 10px;
     }
 
-    /* TITLE — ONLY THE WIDGET NAME */
-    .title {
+    .mf-title {
         font-size: 28px;
         font-weight: 600;
         margin-bottom: 20px;
     }
 
     /* MAIN CONTAINER */
-    .container {
+    .mf-container {
         width: 90%;
         max-width: 500px;
         margin: 0 auto;
@@ -46,86 +63,11 @@
     }
 
     /* BUTTON ROW */
-    .button-row {
+    .mf-buttons {
         display: flex;
         gap: 10px;
     }
 
-    /* PRIMARY BUTTON — RUN */
-    .run-btn {
-        flex: 1;
-        padding: 12px;
-        font-size: 18px;
-        border: none;
-        border-radius: 8px;
-        background: #007bff;   /* MicroFoundary blue */
-        color: white;
-        cursor: pointer;
-    }
-
-    .run-btn:active {
-        background: #005fcc;
-    }
-
-    /* SECONDARY BUTTON — CLEAR (BLACK) */
-    .clear-btn {
-        flex: 1;
-        padding: 12px;
-        font-size: 18px;
-        border: none;
-        border-radius: 8px;
-        background: #000000;   /* Black */
-        color: white;
-        cursor: pointer;
-    }
-
-    .clear-btn:active {
-        opacity: 0.85;
-    }
-
-    /* TEXT AREA */
-    textarea {
-        width: 100%;
-        height: 200px;
-        padding: 12px;
-        font-size: 16px;
-        border-radius: 8px;
-        border: 1px solid #ccc;
-        resize: none;
-        box-sizing: border-box;
-    }
-</style>
-</head>
-
-<body>
-
-<header>
-    <img src="IMG_1669.jpeg" class="logo" alt="MicroFoundary Logo">
-    <div class="title">Starter Widget</div>
-</header>
-
-<div class="container">
-    <div class="button-row">
-        <button class="run-btn" id="runBtn">Run</button>
-        <button class="clear-btn" id="clearBtn">Clear</button>
-    </div>
-
-    <textarea id="inputBox" placeholder="Paste text here..."></textarea>
-</div>
-
-<script>
-    const runBtn = document.getElementById("runBtn");
-    const clearBtn = document.getElementById("clearBtn");
-    const inputBox = document.getElementById("inputBox");
-
-    runBtn.onclick = () => {
-        alert("Run button pressed. (Add your logic here.)");
-    };
-
-    clearBtn.onclick = () => {
-        inputBox.value = "";
-    };
-</script>
-
-</body>
-</html>
+    /* PRIMARY BUTTON */
+    .mf-btn-primary {
+        flex:
