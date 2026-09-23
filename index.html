@@ -27,32 +27,32 @@
         color: var(--mf-text);
     }
 
-    /* HEADER — matches Clarifier exactly */
+    /* HEADER — vertical stack like Clarifier */
     .header-row {
         display: flex;
-        align-items: center;
-        gap: 12px;
-        margin-bottom: 12px; /* Clarifier spacing */
+        flex-direction: column;   /* FIXED: logo above title */
+        align-items: flex-start;
+        margin-bottom: 12px;      /* Clarifier spacing */
     }
 
     .logo {
-        height: 32px;        /* Clarifier logo size */
+        height: 32px;             /* Clarifier logo size */
         width: auto;
         object-fit: contain;
-        margin-bottom: 6px;  /* Clarifier logo/title spacing */
+        margin-bottom: 6px;       /* Clarifier logo/title spacing */
     }
 
     .title {
         font-size: 28px;
         font-weight: 600;
-        margin-bottom: 12px; /* Clarifier spacing */
+        margin-bottom: 12px;      /* Clarifier spacing */
     }
 
     /* MAIN CONTAINER — Clarifier proportions */
     .container {
         display: flex;
         flex-direction: column;
-        gap: 10px;           /* Clarifier gap */
+        gap: 10px;                /* Clarifier gap */
         max-width: 500px;
     }
 
@@ -88,7 +88,7 @@
     /* TEXTAREA — Clarifier proportions */
     textarea {
         width: 100%;
-        height: 120px;       /* Clarifier height */
+        height: 120px;            /* FIXED: Clarifier height */
         padding: 12px;
         font-size: 16px;
         border: 1px solid var(--mf-border);
