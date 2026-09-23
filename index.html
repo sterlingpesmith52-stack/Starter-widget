@@ -27,34 +27,36 @@
         color: var(--mf-text);
     }
 
-    /* HEADER */
+    /* HEADER — matches Clarifier exactly */
     .header-row {
         display: flex;
         align-items: center;
         gap: 12px;
-        margin-bottom: 20px;
+        margin-bottom: 12px; /* Clarifier spacing */
     }
 
     .logo {
-        height: 48px;
+        height: 32px;        /* Clarifier logo size */
         width: auto;
         object-fit: contain;
+        margin-bottom: 6px;  /* Clarifier logo/title spacing */
     }
 
     .title {
         font-size: 28px;
         font-weight: 600;
+        margin-bottom: 12px; /* Clarifier spacing */
     }
 
-    /* MAIN CONTAINER */
+    /* MAIN CONTAINER — Clarifier proportions */
     .container {
         display: flex;
         flex-direction: column;
-        gap: 12px;
+        gap: 10px;           /* Clarifier gap */
         max-width: 500px;
     }
 
-    /* BUTTONS — Standard MicroFoundary */
+    /* BUTTONS — Clarifier proportions */
     button {
         padding: 10px 16px;
         font-size: 16px;
@@ -83,10 +85,10 @@
         background: var(--mf-secondary-active);
     }
 
-    /* TEXTAREA */
+    /* TEXTAREA — Clarifier proportions */
     textarea {
         width: 100%;
-        height: 180px;
+        height: 120px;       /* Clarifier height */
         padding: 12px;
         font-size: 16px;
         border: 1px solid var(--mf-border);
