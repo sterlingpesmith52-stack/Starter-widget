@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,14 +7,10 @@
 <title>Starter Widget</title>
 
 <style>
-    /* ===============================
-       MICROFOUNDARY STANDARD STYLES
-       =============================== */
-
     :root {
-        --mf-primary: #007AFF;      /* Clarifier blue */
+        --mf-primary: #007AFF;
         --mf-primary-active: #005FCC;
-        --mf-secondary: #000000;    /* Black secondary */
+        --mf-secondary: #000000;
         --mf-secondary-active: #222222;
         --mf-border: #ccc;
         --mf-text: #000;
@@ -27,47 +24,54 @@
         color: var(--mf-text);
     }
 
-    /* HEADER — vertical stack like Clarifier */
     .header-row {
         display: flex;
-        flex-direction: column;   /* FIXED: logo above title */
+        flex-direction: column;
         align-items: flex-start;
-        margin-bottom: 12px;      /* Clarifier spacing */
+        margin-bottom: 12px;
     }
 
     .logo {
-        height: 32px;             /* Clarifier logo size */
+        height: 32px;
         width: auto;
         object-fit: contain;
-        margin-bottom: 6px;       /* Clarifier logo/title spacing */
+        margin-bottom: 6px;
     }
 
     .title {
         font-size: 28px;
         font-weight: 600;
-        margin-bottom: 12px;      /* Clarifier spacing */
+        margin-bottom: 12px;
     }
 
-    /* MAIN CONTAINER — Clarifier proportions */
     .container {
         display: flex;
         flex-direction: column;
-        gap: 10px;                /* Clarifier gap */
+        gap: 10px;
         max-width: 500px;
     }
 
-    /* BUTTONS — Clarifier proportions */
+    /* FIXED BUTTON ROW */
+    .button-row {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: flex-start !important;
+        align-items: center !important;
+        gap: 10px !important;
+        width: 100%;
+    }
+
     button {
         padding: 10px 16px;
         font-size: 16px;
         border: none;
         border-radius: 6px;
         cursor: pointer;
-        width: auto;
-        display: inline-block;
+        width: auto !important;        /* FORCE auto width */
+        display: inline-block !important;
+        flex: 0 0 auto !important;      /* Prevent stretching */
     }
 
-    /* Primary (blue) */
     .run-btn {
         background: var(--mf-primary);
         color: white;
@@ -76,7 +80,6 @@
         background: var(--mf-primary-active);
     }
 
-    /* Secondary/minor (black) */
     .clear-btn {
         background: var(--mf-secondary);
         color: white;
@@ -85,10 +88,9 @@
         background: var(--mf-secondary-active);
     }
 
-    /* TEXTAREA — Clarifier proportions */
     textarea {
         width: 100%;
-        height: 120px;            /* FIXED: Clarifier height */
+        height: 120px;
         padding: 12px;
         font-size: 16px;
         border: 1px solid var(--mf-border);
@@ -112,8 +114,12 @@
     </div>
 
     <div class="container">
-        <button class="run-btn" id="runBtn">Run</button>
-        <button class="clear-btn" id="clearBtn">Clear</button>
+
+        <!-- FIXED BUTTON ROW -->
+        <div class="button-row">
+            <button class="run-btn" id="runBtn">Run</button>
+            <button class="clear-btn" id="clearBtn">Clear</button>
+        </div>
 
         <textarea id="inputBox" placeholder="Paste text here..."></textarea>
     </div>
